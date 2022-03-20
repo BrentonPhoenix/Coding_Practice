@@ -146,7 +146,9 @@ fetchButton.addEventListener('click', ev=>{
         }
         if( r === 'strInstructions'){
             instructions.innerText = recipe.strInstructions
-        } else console.log()}
+        } else if (recipe.strInstructions === ""){
+            instructions.innerText = "The Database has no instructions included."
+        } else console.log('There is an unknown issue at the Instructions if statement.')}
 
     })
 })
