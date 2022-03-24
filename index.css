@@ -1,0 +1,24 @@
+#ingredientsDiv{
+    width:35%;
+    height: auto;
+    padding: 5px 10px 5px 10px;
+    background-color: aqua;
+}
+
+#instructionsDiv{
+    width:55%;
+    height: auto;
+    padding: 5px 10px 5px 10px;
+    background-color: red;
+}
+
+#flexbox{
+    display:flex;
+    justify-content: space-around;
+}
+
+#fetchR{
+    position:relative;
+    left: 80%;
+    margin:5px 5px 5px 5px
+}

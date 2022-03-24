@@ -5,16 +5,19 @@ let title = document.querySelector('h1')
 let instructions = document.querySelector('p')
 
 
+
 fetchButton.addEventListener('click', ev=>{
     fetch("https://themealdb.com/api/json/v1/1/random.php")
-    .then( e => e.json() )
+    .then( e => e.json()
+    )
     // .then(json =>{
     //     jsonResults = json.meals[0]
     //     console.log(jsonResults)
     //     // instructions.innerText = jsonResults.meals[0].strInstructions
     // })
     .then(function(json){
-        console.log(json)
+        // console.log(json)
+        recipeList.innerHTML = "" 
         let recipe = json.meals[0]
         for(r in recipe){
             if(r === 'strIngredient1'&& recipe.strIngredient1 !== ""
