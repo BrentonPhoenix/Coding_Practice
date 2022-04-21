@@ -1,15 +1,15 @@
-let fetchButton = document.getElementById("fetchR")
+let fetchButton = document.getElementById("fetchButton")
 let recipeList = document.querySelector("ul")
 let jsonResults;
 let title = document.querySelector('h1')
 let instructions = document.querySelector('p')
+let apiURL = "https://themealdb.com/api/json/v1/1/random.php"
 
 
 
 fetchButton.addEventListener('click', ev=>{
-    fetch("https://themealdb.com/api/json/v1/1/random.php")
-    .then( e => e.json()
-    )
+    fetch(apiURL)
+    .then( e => e.json())
     // .then(json =>{
     //     jsonResults = json.meals[0]
     //     console.log(jsonResults)
@@ -140,21 +140,20 @@ fetchButton.addEventListener('click', ev=>{
                 listItem.innerHTML = recipe.strIngredient20;
                 recipeList.appendChild(listItem)
                 // console.log('strIngredient20: r and recipe.stringredient20',r, recipe.strIngredient20)
-            } else {
-                // console.log("things not used i am iterating over",r)
-            }
-        if ( r === 'strMeal'){
-        // console.log(recipe.strMeal)
-        title.innerText = recipe.strMeal
-        }else {
-            // console.log(`this is not the title this is ${r}`)
+            } else if ( r === 'strMeal'){
+                title.innerText = recipe.strMeal
+            }else if( r === 'strInstructions'){
+                instructions.innerText = recipe.strInstructions
+            } else if (recipe.strInstructions === ""){
+                instructions.innerText = "The Database has no instructions included."
+            } if( r === 'strInstructions'){
+                instructions.innerText = recipe.strInstructions
+            } else if (recipe.strInstructions === ""){
+                instructions.innerText = "The Database has no instructions included."
+            } else { }
+        
         }
-        if( r === 'strInstructions'){
-            instructions.innerText = recipe.strInstructions
-        } else if (recipe.strInstructions === ""){
-            instructions.innerText = "The Database has no instructions included."
-        } else console.log('')}
-
+        
     })
 })
 
